@@ -1,9 +1,9 @@
-package com.example.springbootpractice.controller.lab01;
+package com.example.springbootpractice.controller;
 
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
-@RestController@RequestMapping("/lab01")
+@RestController
 public class EchoController {
 
     @GetMapping("/echo")

@@ -1,4 +1,4 @@
-package com.example.springbootpractice.controller.lab02;
+package com.example.springbootpractice.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,7 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 
 //년월일을 입력하면 요일을 알려주는 원격 프로그램
 @RestController // 등록
-@RequestMapping("/lab02")
 public class YoilTeller {
 
     @RequestMapping("/getYoil")
