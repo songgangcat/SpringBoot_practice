@@ -18,8 +18,8 @@ import java.util.Calendar;
 @Controller
 public class YoilTeller {
 
-    @RequestMapping("/yoil") // 뷰의 이름을 반환하는 return을 안하면 url을 이름으로 씀 -> void 사용
-    public void yoil(int year, int month, int day, Model model) {
+    @RequestMapping("/getYoil") // 뷰의 이름을 반환하는 return을 안하면 url을 이름으로 씀 -> void 사용
+    public String yoil(int year, int month, int day, Model model) {
 
         //2. 작업 - 요일을 계산
         Calendar cal = Calendar.getInstance(); // 현재 날짜와 시간을 갖는 cal
@@ -35,7 +35,7 @@ public class YoilTeller {
         model.addAttribute("day", day);
         model.addAttribute("yoil", yoil);
 
-        
+        return "yoil";
             }
 }
 
