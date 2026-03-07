@@ -1,9 +1,11 @@
 package com.example.springbootpractice.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+
+
+
 
 import java.util.Calendar;
 
@@ -17,17 +19,7 @@ import java.util.Calendar;
 public class YoilTeller {
 
     @RequestMapping("/yoil") // 뷰의 이름을 반환하는 return을 안하면 url을 이름으로 씀 -> void 사용
-    public ModelAndView yoil(@RequestParam("year") int year,
-        @RequestParam("month") int month,
-        @RequestParam("day") int day) {
-
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("yoilError"); // 기본 뷰 이름 지정
-
-
-        if(!isValid(year, month, day)) { 
-            return mv; // 사용자가 요청한 날짜가 유효하지 않으면 yoilError를 보여준다
-        }
+    public void yoil(int year, int month, int day, Model model) {
 
         //2. 작업 - 요일을 계산
         Calendar cal = Calendar.getInstance(); // 현재 날짜와 시간을 갖는 cal
@@ -38,21 +30,13 @@ public class YoilTeller {
         char yoil = "일월화수목금토".charAt(dayOfWeek - 1);
 
         // 작업한 결과를 Model에 저장(DS가 Model을 View로 전달)
-        mv.addObject("year", year);
-        mv.addObject("month", month);
-        mv.addObject("day", day);
-        mv.addObject("yoil", yoil);
-        mv.setViewName("yoil");
+        model.addAttribute("year", year);
+        model.addAttribute("month", month);
+        model.addAttribute("day", day);
+        model.addAttribute("yoil", yoil);
 
-        return mv;
         
             }
-        private boolean isValid(int year, int month, int day) { // 메서드 만들기
-            
-            // 여기에 각 변수별 범위 설정하여 유효성 확인하는 코드 만들기
-
-            return true;
-        }
 }
 
 
