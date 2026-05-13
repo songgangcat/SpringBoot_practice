@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="${param.msg}"></h1>
+<form action="/login/login" method="post"> 
+    <!-- 버튼을 누르면 action의 주소로 id,pwd 입력받은것을 POST로 전달, 
+    LoginController로 /login/login (POST)로 들어가니, @PostMapping이 받게 된다.-->
+    id:<br>
+    <input type="text" name="id"><br>
+    pwd:<br>
+    <input type="password" name="pwd"><br> <!-- password 타입 사용-->
+    <input type="submit" value="로그인"> <!-- 버튼 생성 -->
+</form>
+</body>
+</html>
